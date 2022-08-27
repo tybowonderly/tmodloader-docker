@@ -1,8 +1,8 @@
 FROM debian:stretch-slim AS downloader
 
-ARG SERVER_VER="1423"
+ARG SERVER_VER="1436"
 ARG SERVER_VER_INC="042"
-ARG TMODLOADER_VERSION="v0.11.8.5"
+ARG TMODLOADER_VERSION="v2022.07.58.9"
 
 RUN apt-get update && \
     apt-get install -y unzip curl
@@ -12,14 +12,14 @@ RUN curl -L \
         https://terraria.org/api/download/pc-dedicated-server/terraria-server-${SERVER_VER}.zip && \
     curl -L \
         -o /tmp/tModLoader.zip \
-        https://github.com/tModLoader/tModLoader/releases/download/${TMODLOADER_VERSION}/tModLoader.Linux.${TMODLOADER_VERSION}.zip && \
+        https://github.com/tModLoader/tModLoader/releases/download/${TMODLOADER_VERSION}/tModLoader.zip && \
     unzip -d /tmp /tmp/terrariaServer.zip && \
     unzip -d /tmp/tModLoader /tmp/tModLoader.zip
 
 FROM debian:stretch-slim AS runner
 
-ARG SERVER_VER="1423"
-ARG UID="999"
+ARG SERVER_VER="1436"
+ARG UID="1000"
 
 ENV INSTALL_LOC="/terraria"
 ENV WORLDS_LOC="/worlds"
