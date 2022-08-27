@@ -12,7 +12,7 @@
 Build this repo's image:
 
 ```bash
-docker build -t tmodloader https://github.com/FragSoc/tmodloader-docker.git
+docker build -t tmodloader https://github.com/tybowonderly/tmodloader-docker.git
 ```
 
 Then follow the steps below to run.
